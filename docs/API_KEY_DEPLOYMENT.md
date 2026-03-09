@@ -114,16 +114,16 @@ Indexed by `normalizedEmail` for duplicate detection.
 
 After deployment:
 
-- [ ] Set `WORLDMONITOR_VALID_KEYS` in Vercel
-- [ ] Set `CONVEX_URL` in Vercel
-- [ ] Run `npx convex deploy` to push schema
-- [ ] Desktop without key: cloud fallback blocked (console shows `cloud fallback blocked`)
-- [ ] Desktop with invalid key: sebuf requests get `401`
-- [ ] Desktop with valid key: cloud fallback works as before
-- [ ] Web access: no key required, works normally
-- [ ] Registration form: submit email, check Convex dashboard
-- [ ] Duplicate email: shows "already registered"
-- [ ] Existing settings tabs (LLMs, API Keys, Debug) unchanged
+- [x] Set `WORLDMONITOR_VALID_KEYS` in Vercel
+- [x] Set `CONVEX_URL` in Vercel
+- [x] Run `npx convex deploy` to push schema
+- [x] Desktop without key: cloud fallback blocked (console shows `cloud fallback blocked`)
+- [x] Desktop with invalid key: sebuf requests get `401`
+- [x] Desktop with valid key: cloud fallback works as before
+- [x] Web access: no key required, works normally
+- [x] Registration form: submit email, check Convex dashboard
+- [x] Duplicate email: shows "already registered"
+- [x] Existing settings tabs (LLMs, API Keys, Debug) unchanged
 
 ## Files Reference
 

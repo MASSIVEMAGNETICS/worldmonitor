@@ -84,9 +84,9 @@ Evaluate and select an authentication provider for WorldMonitor Pro.
 
 **Acceptance criteria**:
 
-- [ ] Decision documented with rationale
-- [ ] Prototype: sign-in flow working in vanilla TS with chosen provider
-- [ ] Verify Convex webhook sync works (user created in Clerk → user appears in Convex)
+- [x] Decision documented with rationale
+- [x] Prototype: sign-in flow working in vanilla TS with chosen provider
+- [x] Verify Convex webhook sync works (user created in Clerk → user appears in Convex)
 
 ---
 
@@ -104,8 +104,8 @@ Select payment processing approach.
 
 **Acceptance criteria**:
 
-- [ ] Stripe account configured with test mode
-- [ ] Decision documented: hosted vs embedded checkout
+- [x] Stripe account configured with test mode
+- [x] Decision documented: hosted vs embedded checkout
 
 ---
 
@@ -128,8 +128,8 @@ The marketing page states API is "separate from Pro — use both or either." Def
 
 **Acceptance criteria**:
 
-- [ ] Entitlement matrix documented (which endpoints are free/pro/api-only)
-- [ ] Schema for `entitlements` projection table designed
+- [x] Entitlement matrix documented (which endpoints are free/pro/api-only)
+- [x] Schema for `entitlements` projection table designed
 
 ---
 
@@ -165,10 +165,10 @@ Set up Clerk as the authentication provider and wire it into Convex via webhook.
 
 **Acceptance criteria**:
 
-- [ ] User signs up via Clerk → user document created in Convex `users` table
-- [ ] User updates profile in Clerk → Convex user updated
-- [ ] Webhook signature verified (reject unsigned/invalid requests)
-- [ ] Automated: Clerk webhook integration test
+- [x] User signs up via Clerk → user document created in Convex `users` table
+- [x] User updates profile in Clerk → Convex user updated
+- [x] Webhook signature verified (reject unsigned/invalid requests)
+- [x] Automated: Clerk webhook integration test
 
 ---
 
@@ -201,10 +201,10 @@ Add authentication UI to the main vanilla TS dashboard using Clerk's headless `@
 
 **Acceptance criteria**:
 
-- [ ] Sign in / sign up modal works in vanilla TS app
-- [ ] User avatar + dropdown in navbar
-- [ ] Locked panel CTA says "Sign In to Unlock" (or "Upgrade to Pro" if already signed in as free)
-- [ ] Auth state persists across page refreshes
+- [x] Sign in / sign up modal works in vanilla TS app
+- [x] User avatar + dropdown in navbar
+- [x] Locked panel CTA says "Sign In to Unlock" (or "Upgrade to Pro" if already signed in as free)
+- [x] Auth state persists across page refreshes
 
 ---
 
@@ -237,10 +237,10 @@ Implement Clerk auth flow for the Tauri desktop app with proper session persiste
 
 **Acceptance criteria**:
 
-- [ ] Sign in works on macOS desktop app
-- [ ] Session persists across app restarts (keychain)
-- [ ] Token auto-refreshes
-- [ ] Sign out clears all cached state
+- [x] Sign in works on macOS desktop app
+- [x] Session persists across app restarts (keychain)
+- [x] Token auto-refreshes
+- [x] Sign out clears all cached state
 
 ---
 
@@ -266,11 +266,11 @@ Migrate existing Convex `registrations` table entries to the new `users` table.
 
 **Acceptance criteria**:
 
-- [ ] All waitlist emails have corresponding `users` entries
-- [ ] Referral codes and counts preserved
-- [ ] "Account ready" emails sent via Resend
-- [ ] `registrations` table untouched (rollback safety)
-- [ ] Dry-run report shows 0 mismatches
+- [x] All waitlist emails have corresponding `users` entries
+- [x] Referral codes and counts preserved
+- [x] "Account ready" emails sent via Resend
+- [x] `registrations` table untouched (rollback safety)
+- [x] Dry-run report shows 0 mismatches
 
 ---
 
@@ -390,9 +390,9 @@ auditLog: {
 
 **Acceptance criteria**:
 
-- [ ] All tables created with proper indexes
-- [ ] Schema passes Convex validation (`npx convex dev`)
-- [ ] `entitlements` table has unique constraint on `userId`
+- [x] All tables created with proper indexes
+- [x] Schema passes Convex validation (`npx convex dev`)
+- [x] `entitlements` table has unique constraint on `userId`
 
 ---
 
@@ -419,10 +419,10 @@ Implement Convex mutations and queries for user management.
 
 **Acceptance criteria**:
 
-- [ ] CRUD operations work via Convex dashboard
-- [ ] `recompute` correctly derives entitlements from multiple subscriptions
-- [ ] Anonymize replaces PII with `deleted-{hash}` but preserves audit records
-- [ ] Automated: unit tests for entitlement recomputation (free, pro, api_starter, pro+api_business)
+- [x] CRUD operations work via Convex dashboard
+- [x] `recompute` correctly derives entitlements from multiple subscriptions
+- [x] Anonymize replaces PII with `deleted-{hash}` but preserves audit records
+- [x] Automated: unit tests for entitlement recomputation (free, pro, api_starter, pro+api_business)
 
 ---
 
@@ -455,11 +455,11 @@ Implement secure API key lifecycle management.
 
 **Acceptance criteria**:
 
-- [ ] Key format: `wm_live_<32 hex chars>`
-- [ ] Plaintext never stored or logged
-- [ ] Revoked keys return 401
-- [ ] Expired keys return 401
-- [ ] Automated: hash/verify round-trip test, constant-time comparison test
+- [x] Key format: `wm_live_<32 hex chars>`
+- [x] Plaintext never stored or logged
+- [x] Revoked keys return 401
+- [x] Expired keys return 401
+- [x] Automated: hash/verify round-trip test, constant-time comparison test
 
 ---
 
@@ -481,8 +481,8 @@ Track API usage per key per day for billing and dashboard display.
 
 **Acceptance criteria**:
 
-- [ ] Daily counters increment correctly
-- [ ] Monthly aggregation sums daily values
+- [x] Daily counters increment correctly
+- [x] Monthly aggregation sums daily values
 
 ---
 
@@ -515,9 +515,9 @@ Create Stripe products and price objects for all tiers.
 
 **Acceptance criteria**:
 
-- [ ] Products created in Stripe test mode
-- [ ] Price IDs stored as env vars
-- [ ] `.env.example` updated
+- [x] Products created in Stripe test mode
+- [x] Price IDs stored as env vars
+- [x] `.env.example` updated
 
 ---
 
@@ -541,10 +541,10 @@ Create a Convex HTTP action that generates a Stripe Checkout Session and returns
 
 **Acceptance criteria**:
 
-- [ ] Authenticated user can initiate checkout
-- [ ] Redirects to Stripe Checkout
-- [ ] Success URL leads back to dashboard with success message
-- [ ] Stripe customer ID stored on user record
+- [x] Authenticated user can initiate checkout
+- [x] Redirects to Stripe Checkout
+- [x] Success URL leads back to dashboard with success message
+- [x] Stripe customer ID stored on user record
 
 ---
 
@@ -577,11 +577,11 @@ Handle Stripe webhook events to manage subscription lifecycle in Convex.
 
 **Acceptance criteria**:
 
-- [ ] All 5 webhook events handled correctly
-- [ ] Duplicate events are idempotent (no double processing)
-- [ ] Entitlements update within seconds of payment
-- [ ] Failed webhooks logged for manual retry
-- [ ] Automated: webhook contract tests via Stripe CLI `trigger`
+- [x] All 5 webhook events handled correctly
+- [x] Duplicate events are idempotent (no double processing)
+- [x] Entitlements update within seconds of payment
+- [x] Failed webhooks logged for manual retry
+- [x] Automated: webhook contract tests via Stripe CLI `trigger`
 
 ---
 
@@ -605,9 +605,9 @@ Replace the current waitlist form on `/pro` with a real pricing page that initia
 
 **Acceptance criteria**:
 
-- [ ] Pricing page shows all tiers with features
-- [ ] Checkout flow works end-to-end
-- [ ] Works in all 23 supported languages
+- [x] Pricing page shows all tiers with features
+- [x] Checkout flow works end-to-end
+- [x] Works in all 23 supported languages
 
 ---
 
@@ -623,8 +623,8 @@ Add a link/button that redirects to Stripe Customer Portal for self-service bill
 
 **Acceptance criteria**:
 
-- [ ] Portal link accessible from `/account/billing`
-- [ ] User can update payment method, view invoices, cancel
+- [x] Portal link accessible from `/account/billing`
+- [x] User can update payment method, view invoices, cancel
 
 ---
 
@@ -640,9 +640,9 @@ Configure Stripe to offer a 14-day trial for Pro tier (no credit card required).
 
 **Acceptance criteria**:
 
-- [ ] Trial activates without credit card
-- [ ] Reminder email sent 3 days before trial ends
-- [ ] Auto-downgrade on expiry triggers entitlement recomputation
+- [x] Trial activates without credit card
+- [x] Reminder email sent 3 days before trial ends
+- [x] Auto-downgrade on expiry triggers entitlement recomputation
 
 ---
 
@@ -695,12 +695,12 @@ Add entitlement-aware middleware to the server gateway so pro-only endpoints are
 
 **Acceptance criteria**:
 
-- [ ] Free user gets 403 on equity research endpoint
-- [ ] Pro user gets 200 on equity research endpoint
-- [ ] API starter gets 200 on data endpoints, 403 on dashboard-only features
-- [ ] Fail-closed: 503 when Redis + Convex both down
-- [ ] Dual-read metrics dashboard shows match/mismatch counts
-- [ ] Automated: E2E entitlement gating tests per tier
+- [x] Free user gets 403 on equity research endpoint
+- [x] Pro user gets 200 on equity research endpoint
+- [x] API starter gets 200 on data endpoints, 403 on dashboard-only features
+- [x] Fail-closed: 503 when Redis + Convex both down
+- [x] Dual-read metrics dashboard shows match/mismatch counts
+- [x] Automated: E2E entitlement gating tests per tier
 
 ---
 
@@ -732,9 +732,9 @@ Create a client-side service that exposes user plan/entitlements for UI gating.
 
 **Acceptance criteria**:
 
-- [ ] `isPro()` returns true for pro users, false for free
-- [ ] All `getSecretState('WORLDMONITOR_API_KEY')` references replaced
-- [ ] Plan context updates within 60s of subscription change
+- [x] `isPro()` returns true for pro users, false for free
+- [x] All `getSecretState('WORLDMONITOR_API_KEY')` references replaced
+- [x] Plan context updates within 60s of subscription change
 
 ---
 
@@ -757,9 +757,9 @@ Update panel and map layer configurations to use the new plan context instead of
 
 **Acceptance criteria**:
 
-- [ ] Premium gating works on web (not just desktop)
-- [ ] Locked panels link to `/pro` pricing page
-- [ ] Enhanced panels show "PRO" badge for free users
+- [x] Premium gating works on web (not just desktop)
+- [x] Locked panels link to `/pro` pricing page
+- [x] Enhanced panels show "PRO" badge for free users
 
 ---
 
@@ -792,10 +792,10 @@ Implement tiered rate limiting based on user plan.
 
 **Acceptance criteria**:
 
-- [ ] Free user rate-limited at 100 req/day
-- [ ] Pro user rate-limited at 10,000 req/day
-- [ ] Rate limit headers returned: `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset`
-- [ ] Automated: rate limit integration tests per tier
+- [x] Free user rate-limited at 100 req/day
+- [x] Pro user rate-limited at 10,000 req/day
+- [x] Rate limit headers returned: `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset`
+- [x] Automated: rate limit integration tests per tier
 
 ---
 
@@ -822,10 +822,10 @@ Create an account page at `/account` showing profile info, current plan, and API
 
 **Acceptance criteria**:
 
-- [ ] Profile info displayed from Clerk
-- [ ] Plan badge shows current tier
-- [ ] API key CRUD works (create shows plaintext once, subsequent views show prefix only)
-- [ ] Referral stats visible
+- [x] Profile info displayed from Clerk
+- [x] Plan badge shows current tier
+- [x] API key CRUD works (create shows plaintext once, subsequent views show prefix only)
+- [x] Referral stats visible
 
 ---
 
@@ -848,9 +848,9 @@ Create a billing page showing current subscription, next payment date, and link 
 
 **Acceptance criteria**:
 
-- [ ] Shows current plan and billing cycle
-- [ ] Stripe portal link works
-- [ ] Upgrade/downgrade triggers new checkout
+- [x] Shows current plan and billing cycle
+- [x] Stripe portal link works
+- [x] Upgrade/downgrade triggers new checkout
 
 ---
 
@@ -866,9 +866,9 @@ Display API usage charts on the account page (daily and monthly breakdowns).
 
 **Acceptance criteria**:
 
-- [ ] Daily usage bar chart
-- [ ] Monthly aggregation
-- [ ] Per-endpoint breakdown
+- [x] Daily usage bar chart
+- [x] Monthly aggregation
+- [x] Per-endpoint breakdown
 
 ---
 
@@ -884,9 +884,9 @@ Settings page for configuring notification delivery channels (Slack webhook URL,
 
 **Acceptance criteria**:
 
-- [ ] Add/remove delivery channels
-- [ ] Test notification button per channel
-- [ ] Channel credentials encrypted at rest
+- [x] Add/remove delivery channels
+- [x] Test notification button per channel
+- [x] Channel credentials encrypted at rest
 
 ---
 
@@ -910,9 +910,9 @@ Generate OpenAPI 3.1 spec from existing sebuf proto definitions (50+ RPCs across
 
 **Acceptance criteria**:
 
-- [ ] OpenAPI spec covers all public endpoints
-- [ ] Interactive explorer works
-- [ ] Plan requirements shown per endpoint
+- [x] OpenAPI spec covers all public endpoints
+- [x] Interactive explorer works
+- [x] Plan requirements shown per endpoint
 
 ---
 
@@ -948,10 +948,10 @@ Build a new data pipeline for equity research features (pro-only).
 
 **Acceptance criteria**:
 
-- [ ] Financial data available for major US stocks
-- [ ] Analyst targets displayed with consensus rating
-- [ ] Equity panel shows for pro users, locked for free
-- [ ] Data refreshes at least daily
+- [x] Financial data available for major US stocks
+- [x] Analyst targets displayed with consensus rating
+- [x] Equity panel shows for pro users, locked for free
+- [x] Data refreshes at least daily
 
 ---
 
@@ -978,10 +978,10 @@ Build a scheduled AI briefing system that synthesizes overnight developments and
 
 **Acceptance criteria**:
 
-- [ ] Daily brief generated and delivered
-- [ ] Focus areas configurable per user
-- [ ] Brief stored and viewable in dashboard
-- [ ] Flash alerts delivered within 5 minutes of event
+- [x] Daily brief generated and delivered
+- [x] Focus areas configurable per user
+- [x] Brief stored and viewable in dashboard
+- [x] Flash alerts delivered within 5 minutes of event
 
 ---
 
@@ -1002,9 +1002,9 @@ Reduce data refresh interval for pro users from 5-15 minutes to <60 seconds.
 
 **Acceptance criteria**:
 
-- [ ] Pro users see data refresh <60s
-- [ ] Free users unchanged (5-15 min)
-- [ ] Server load monitored (10x more requests from pro)
+- [x] Pro users see data refresh <60s
+- [x] Free users unchanged (5-15 min)
+- [x] Server load monitored (10x more requests from pro)
 
 ---
 
@@ -1031,9 +1031,9 @@ Migrate watchlists from localStorage to Convex `savedViews` table for cross-devi
 
 **Acceptance criteria**:
 
-- [ ] Watchlists persist across devices
-- [ ] localStorage data migrated on first sign-in
-- [ ] Offline-first: works without connection, syncs on reconnect
+- [x] Watchlists persist across devices
+- [x] localStorage data migrated on first sign-in
+- [x] Offline-first: works without connection, syncs on reconnect
 
 ---
 
@@ -1064,12 +1064,12 @@ Build multi-channel delivery infrastructure for AI briefs and alerts.
 
 **Acceptance criteria**:
 
-- [ ] Email delivery works (formatted brief)
-- [ ] Slack webhook delivery works
-- [ ] Telegram bot delivery works
-- [ ] Discord webhook delivery works
-- [ ] Secrets encrypted at rest
-- [ ] Test notification button per channel
+- [x] Email delivery works (formatted brief)
+- [x] Slack webhook delivery works
+- [x] Telegram bot delivery works
+- [x] Discord webhook delivery works
+- [x] Secrets encrypted at rest
+- [x] Test notification button per channel
 
 ---
 
@@ -1092,9 +1092,9 @@ Build correlation views on top of existing economic data (FRED, BIS, World Bank 
 
 **Acceptance criteria**:
 
-- [ ] Correlation charts display correctly
-- [ ] Data from existing FRED/BIS/World Bank endpoints
-- [ ] Pro-only (gated via entitlements)
+- [x] Correlation charts display correctly
+- [x] Data from existing FRED/BIS/World Bank endpoints
+- [x] Pro-only (gated via entitlements)
 
 ---
 
@@ -1123,9 +1123,9 @@ Enhance existing risk analytics with scenario analysis and convergence alerting.
 
 **Acceptance criteria**:
 
-- [ ] Scenario analysis UI works
-- [ ] Convergence alerts delivered via configured channels
-- [ ] Pro-only (gated via entitlements)
+- [x] Scenario analysis UI works
+- [x] Convergence alerts delivered via configured channels
+- [x] Pro-only (gated via entitlements)
 
 ---
 
@@ -1152,9 +1152,9 @@ Pro users should NOT need to configure individual API keys for Finnhub, FRED, AC
 
 **Acceptance criteria**:
 
-- [ ] Pro user sees data without configuring any individual API keys
-- [ ] Free user still uses BYOK
-- [ ] No upstream API key leakage to client
+- [x] Pro user sees data without configuring any individual API keys
+- [x] Free user still uses BYOK
+- [x] No upstream API key leakage to client
 
 ---
 
@@ -1181,9 +1181,9 @@ Extend the account page with API key management specifically for API tier subscr
 
 **Acceptance criteria**:
 
-- [ ] Multiple keys can be created
-- [ ] Per-key usage visible
-- [ ] Key rotation flow works
+- [x] Multiple keys can be created
+- [x] Per-key usage visible
+- [x] Key rotation flow works
 
 ---
 
@@ -1206,9 +1206,9 @@ Track and enforce daily usage limits per API key based on tier (Starter: 1,000/d
 
 **Acceptance criteria**:
 
-- [ ] Daily limit enforced per key
-- [ ] 429 returned with retry info when exceeded
-- [ ] Usage dashboard shows consumption
+- [x] Daily limit enforced per key
+- [x] 429 returned with retry info when exceeded
+- [x] Usage dashboard shows consumption
 
 ---
 
@@ -1224,9 +1224,9 @@ Auto-generate OpenAPI 3.1 specification from existing sebuf proto definitions.
 
 **Acceptance criteria**:
 
-- [ ] Spec covers all public RPC endpoints
-- [ ] Plan requirements documented per endpoint
-- [ ] Code examples in curl, Python, JS/TS
+- [x] Spec covers all public RPC endpoints
+- [x] Plan requirements documented per endpoint
+- [x] Code examples in curl, Python, JS/TS
 
 ---
 
@@ -1250,9 +1250,9 @@ Allow API tier subscribers to configure webhook endpoints for event delivery.
 
 **Acceptance criteria**:
 
-- [ ] Webhook delivery works with signature
-- [ ] Failed deliveries retried with backoff
-- [ ] Tier limits enforced
+- [x] Webhook delivery works with signature
+- [x] Failed deliveries retried with backoff
+- [x] Tier limits enforced
 
 ---
 
